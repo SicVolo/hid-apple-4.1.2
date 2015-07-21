@@ -1,13 +1,13 @@
 hid-apple
 ======================
 
-A Linux HID Apple driver fixed for the early 2015 Apple MacBook Pro 12,1, for Linux kernel 4.0.
+A Linux HID Apple driver fixed for the early 2015 Apple MacBook Pro 12,1, for Linux kernel 4.1.2.
 
 Enables the "fn" key that does not work on a bundled hid-apple driver, because it's not recognizing new USB driver.
 
-Hardcodes default Ubuntu 15.04 kernel parameters (DEBUG_FS=Y, HIDRAW=Y)
+Fixes the non-functioning touchpad right click and the multitouch.
 
-The fixed touchpad driver is here - https://github.com/SicVolo/bcm5974-4.00
+Hardcoded with the default Ubuntu 15.04 kernel parameters (DEBUG_FS=Y, HIDRAW=Y)
 
 Installation
 ---------------------
@@ -17,12 +17,7 @@ make
 sudo make install
 ```
 
-Test by removing and reinstalling the hid stack. This has to be a one-liner because you lose keyboard input after the first module removal. Another way to test is to run the update-initramfs (see below) and reboot your system.
-```
-modprobe -r hid_generic; modprobe -r usbhid; modprobe -r hid; modprobe hid; modprobe usbhid; modprobe hid_generic; modprobe hid_apple
-```
-
-If it's fine make it permanent
+Put the modules into the init ram fs
 ```
 sudo update-initramfs -u
 ```
