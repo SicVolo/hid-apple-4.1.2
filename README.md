@@ -7,6 +7,8 @@ Enables the "fn" key that does not work on a bundled hid-apple driver, because i
 
 Fixes the non-functioning touchpad right click and the multitouch.
 
+The patched driver is based on the fixes published [here]( https://bugzilla.kernel.org/show_bug.cgi?id=96771). The fixes made it into Kernel 4.2
+
 Hardcoded with the default Ubuntu 15.04 kernel parameters (DEBUG_FS=Y, HIDRAW=Y)
 
 Installation
